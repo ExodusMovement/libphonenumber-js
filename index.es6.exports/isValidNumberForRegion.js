@@ -1,4 +1,4 @@
-import withMetadataArgument from '../min/exports/withMetadataArgument.js'
+import withMetadataArgument from '../max/exports/withMetadataArgument.js'
 
 import _isValidNumberForRegion from '../es6/legacy/isValidNumberForRegion.js'
 

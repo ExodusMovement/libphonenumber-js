@@ -1,35 +1,35 @@
 // `parsePhoneNumber()` named export has been renamed to `parsePhoneNumberWithError()`.
-export { parsePhoneNumberWithError, parsePhoneNumberWithError as parsePhoneNumber } from './min/exports/parsePhoneNumberWithError.js'
+export { parsePhoneNumberWithError, parsePhoneNumberWithError as parsePhoneNumber } from './max/exports/parsePhoneNumberWithError.js'
 // `parsePhoneNumberFromString()` named export is now considered legacy:
 // it has been promoted to a default export due to being too verbose.
-export { parsePhoneNumber as parsePhoneNumberFromString, parsePhoneNumber as default } from './min/exports/parsePhoneNumber.js'
+export { parsePhoneNumber as parsePhoneNumberFromString, parsePhoneNumber as default } from './max/exports/parsePhoneNumber.js'
 
-export { isValidPhoneNumber } from './min/exports/isValidPhoneNumber.js'
-export { isPossiblePhoneNumber } from './min/exports/isPossiblePhoneNumber.js'
-export { validatePhoneNumberLength } from './min/exports/validatePhoneNumberLength.js'
+export { isValidPhoneNumber } from './max/exports/isValidPhoneNumber.js'
+export { isPossiblePhoneNumber } from './max/exports/isPossiblePhoneNumber.js'
+export { validatePhoneNumberLength } from './max/exports/validatePhoneNumberLength.js'
 
 // Deprecated.
-export { findNumbers } from './min/exports/findNumbers.js'
-export { searchNumbers } from './min/exports/searchNumbers.js'
+export { findNumbers } from './max/exports/findNumbers.js'
+export { searchNumbers } from './max/exports/searchNumbers.js'
 
-export { findPhoneNumbersInText } from './min/exports/findPhoneNumbersInText.js'
-export { searchPhoneNumbersInText } from './min/exports/searchPhoneNumbersInText.js'
-export { PhoneNumberMatcher } from './min/exports/PhoneNumberMatcher.js'
+export { findPhoneNumbersInText } from './max/exports/findPhoneNumbersInText.js'
+export { searchPhoneNumbersInText } from './max/exports/searchPhoneNumbersInText.js'
+export { PhoneNumberMatcher } from './max/exports/PhoneNumberMatcher.js'
 
-export { AsYouType } from './min/exports/AsYouType.js'
+export { AsYouType } from './max/exports/AsYouType.js'
 export { DIGIT_PLACEHOLDER } from './es6/AsYouTypeFormatter.js'
 
-export { isSupportedCountry } from './min/exports/isSupportedCountry.js'
-export { getCountries } from './min/exports/getCountries.js'
+export { isSupportedCountry } from './max/exports/isSupportedCountry.js'
+export { getCountries } from './max/exports/getCountries.js'
 // `getPhoneCode` name is deprecated, use `getCountryCallingCode` instead.
-export { getCountryCallingCode, getCountryCallingCode as getPhoneCode } from './min/exports/getCountryCallingCode.js'
-export { getExtPrefix } from './min/exports/getExtPrefix.js'
+export { getCountryCallingCode, getCountryCallingCode as getPhoneCode } from './max/exports/getCountryCallingCode.js'
+export { getExtPrefix } from './max/exports/getExtPrefix.js'
 
-export { Metadata } from './min/exports/Metadata.js'
-export { getExampleNumber } from './min/exports/getExampleNumber.js'
+export { Metadata } from './max/exports/Metadata.js'
+export { getExampleNumber } from './max/exports/getExampleNumber.js'
 
-export { formatIncompletePhoneNumber } from './min/exports/formatIncompletePhoneNumber.js'
-export { PhoneNumber } from './min/exports/PhoneNumber.js'
+export { formatIncompletePhoneNumber } from './max/exports/formatIncompletePhoneNumber.js'
+export { PhoneNumber } from './max/exports/PhoneNumber.js'
 
 export {
 	ParseError,
