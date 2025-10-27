@@ -1,6 +1,6 @@
 {
-  "name": "libphonenumber-js",
-  "version": "1.12.23",
+  "name": "@exodus/libphonenumber-js",
+  "version": "1.12.23-rc.1",
   "description": "A simpler (and smaller) rewrite of Google Android's libphonenumber library in javascript",
   "main": "index.js",
   "module": "index.js",

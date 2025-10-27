@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "libphonenumber-js/core",
+  "name": "@exodus/libphonenumber-js/core",
   "main": "index.js",
   "module": "index.js",
   "type": "module",
