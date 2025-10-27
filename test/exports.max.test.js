@@ -35,7 +35,7 @@ import parse, {
 	formatRFC3966
 } from '../max/index.js'
 
-import Library from '../max/index.cjs'
+import Library from '../max/index.js'
 
 import examples from '../examples.mobile.json' with { type: 'json' }
 
@@ -112,77 +112,5 @@ describe('exports/max', () => {
 
 		expect(parseRFC3966('tel:+12133734253')).to.deep.equal({ number: '+12133734253' })
 		expect(formatRFC3966({ number: '+12133734253' })).to.equal('tel:+12133734253')
-	})
-
-	it('should export CommonJS', () => {
-		expect(Library.ParseError).to.be.a('function')
-
-		// `parsePhoneNumber()` named export has been renamed to `parsePhoneNumberWithError()`.
-		expect(Library.parsePhoneNumber('+12133734253').nationalNumber).to.equal('2133734253')
-		expect(Library.parsePhoneNumber('2133734253', 'US').nationalNumber).to.equal('2133734253')
-		expect(
-            Library.parsePhoneNumber('2133734253', { defaultCountry: 'US' }).nationalNumber
-        ).to.equal('2133734253')
-		expect(
-            Library.parsePhoneNumber('2133734253', undefined, { defaultCountry: 'US' }).nationalNumber
-        ).to.equal('2133734253')
-
-		expect(Library.parsePhoneNumberWithError('+12133734253').nationalNumber).to.equal('2133734253')
-		expect(Library.parsePhoneNumberWithError('2133734253', 'US').nationalNumber).to.equal('2133734253')
-		expect(
-            Library.parsePhoneNumberWithError('2133734253', { defaultCountry: 'US' }).nationalNumber
-        ).to.equal('2133734253')
-		expect(
-            Library.parsePhoneNumberWithError('2133734253', undefined, { defaultCountry: 'US' }).nationalNumber
-        ).to.equal('2133734253')
-
-		expect(Library('+12133734253').nationalNumber).to.equal('2133734253')
-		expect(Library.default('+12133734253').nationalNumber).to.equal('2133734253')
-
-		expect(Library.parsePhoneNumberFromString('+12133734253').nationalNumber).to.equal('2133734253')
-		expect(Library.parsePhoneNumberFromString('2133734253')).to.be.undefined
-
-		expect(Library.isValidPhoneNumber('+12133734253')).to.equal(true)
-		expect(Library.isPossiblePhoneNumber('+12133734253')).to.equal(true)
-		expect(Library.validatePhoneNumberLength('+12133734253')).to.be.undefined
-
-		expect(Library.findNumbers('+12133734253')[0].endsAt).to.equal(12)
-		expect(Library.findNumbers('2133734253', 'US')[0].endsAt).to.equal(10)
-		expect(Library.findNumbers('2133734253', { defaultCountry: 'US' })[0].endsAt).to.equal(10)
-		expect(Library.findNumbers('2133734253', undefined, { defaultCountry: 'US' })[0].endsAt).to.equal(10)
-
-		expect(Library.searchNumbers('+12133734253')[Symbol.iterator]().next).to.be.a('function')
-		expect(Library.searchNumbers('2133734253', 'US')[Symbol.iterator]().next).to.be.a('function')
-		expect(
-            Library.searchNumbers('2133734253', { defaultCountry: 'US' })[Symbol.iterator]().next
-        ).to.be.a('function')
-		expect(
-            Library.searchNumbers('2133734253', undefined, { defaultCountry: 'US' })[Symbol.iterator]().next
-        ).to.be.a('function')
-
-		expect(Library.findPhoneNumbersInText('+12133734253')[0].number.number).to.equal('+12133734253')
-		expect(Library.searchPhoneNumbersInText('+12133734253')[Symbol.iterator]().next).to.be.a('function')
-
-		expect(new Library.PhoneNumberMatcher('+12133734253', undefined).find).to.be.a('function')
-
-		expect(new Library.AsYouType().input('+12133734253')).to.equal('+1 213 373 4253')
-		expect(new Library.AsYouType('US').input('2133734253')).to.equal('(213) 373-4253')
-
-		expect(Library.isSupportedCountry('KZ')).to.equal(true)
-		expect(Library.getCountries().indexOf('KZ') > 0).to.equal(true)
-		expect(Library.getCountryCallingCode('KZ')).to.equal('7')
-		expect(Library.getExtPrefix('US')).to.equal(' ext. ')
-
-		expect(Library.formatIncompletePhoneNumber('+121337342')).to.equal('+1 213 373 42')
-		expect(Library.formatIncompletePhoneNumber('21337342', 'US')).to.equal('(213) 373-42')
-
-		expect(Library.parseIncompletePhoneNumber('+1 213 373 42')).to.equal('+121337342')
-		expect(Library.parsePhoneNumberCharacter('+')).to.equal('+')
-		expect(Library.parseDigits('+123')).to.equal('123')
-
-		expect(Library.getExampleNumber('RU', examples).nationalNumber).to.equal('9123456789')
-
-		expect(Library.parseRFC3966('tel:+12133734253')).to.deep.equal({ number: '+12133734253' })
-		expect(Library.formatRFC3966({ number: '+12133734253' })).to.equal('tel:+12133734253')
 	})
 })

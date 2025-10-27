@@ -1,4 +1,4 @@
-import withMetadataArgument from '../min/exports/withMetadataArgument.js'
+import withMetadataArgument from '../max/exports/withMetadataArgument.js'
 
 import _getNumberType from '../es6/legacy/getNumberType.js'
 
