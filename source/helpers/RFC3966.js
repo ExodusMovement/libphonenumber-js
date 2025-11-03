@@ -55,5 +55,16 @@ export function formatRFC3966({ number, ext }) {
 	if (number[0] !== '+') {
 		throw new Error(`"formatRFC3966()" expects "number" to be in E.164 format.`)
 	}
-	return `tel:${number}${ext ? ';ext=' + ext : ''}`
+
+	let uri = "tel:" + number;
+	if (ext != null && ext !== "") {
+		// Allow digits and DTMF characters only. Adjust if you need A-D.
+		if (!/^[0-9A-D*#]+$/.test(ext)) {
+			throw new Error("Invalid ext. Use digits or *, #, optionally A-D.");
+		}
+		// Encode anyway to be robust against future changes.
+		uri += ";ext=" + encodeURIComponent(ext);
+	}
+
+	return uri
 }

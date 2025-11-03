@@ -200,8 +200,10 @@ function formatIDD(
 function merge(...objects) {
 	let i = 1
 	while (i < objects.length) {
-		if (objects[i]) {
-			for (const key in objects[i]) {
+		const source = objects[i];
+		if (source && typeof source === 'object') {
+			for (const key of Object.keys(source)) {
+				if (key in {}) continue;
 				objects[0][key] = objects[i][key]
 			}
 		}
